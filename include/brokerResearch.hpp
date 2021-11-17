@@ -1,7 +1,7 @@
 // Copyright 2021 Your Name <your_email>
 
-#ifndef INCLUDE_BROKERRESEARCHHPP_HPP_
-#define INCLUDE_BROKERRESEARCHHPP_HPP_
+#ifndef INCLUDE_BROKERRESEARCH_HPP_
+#define INCLUDE_BROKERRESEARCH_HPP_
 
 #include <boost/filesystem.hpp>
 #include <iostream>
@@ -25,4 +25,4 @@ void broker_research(BOOST_PATH& path);
 
 void formatPrint(std::vector<broker>& brokerList);
 
-#endif // INCLUDE_BROKERRESEARCHHPP_HPP_
+#endif // INCLUDE_BROKERRESEARCH_HPP_

@@ -7,7 +7,8 @@ auto example() -> void {
 
 void path_convert(const BOOST_PATH& path, std::cmatch* m)
 {
-  regex_search(path.c_str(), *m, std::regex("([a-z]+)/balance_([0-9]+)_([0-9]+).txt"));
+  regex_search(path.c_str(), *m,
+               std::regex("([a-z]+)/balance_([0-9]+)_([0-9]+).txt"));
 }
 
 void broker_insert(std::cmatch& m, std::vector<broker>& brokerList)
@@ -18,7 +19,7 @@ void broker_insert(std::cmatch& m, std::vector<broker>& brokerList)
     if (iter.broker == m[1])
     {
       iter.files++;
-      if (std::stoi(m[3]) > (int)iter.lastDate)
+      if (std::stoi(m[3]) > static_cast<int>(iter.lastDate))
         iter.lastDate = std::stoi(m[3]);
       checker = true;
     }
@@ -28,7 +29,7 @@ void broker_insert(std::cmatch& m, std::vector<broker>& brokerList)
     broker temp;
     temp.broker = m[1];
     temp.account = m[2];
-    temp.lastDate = (size_t)std::stoi(m[3]);
+    temp.lastDate = static_cast<size_t>(std::stoi(m[3]));
     temp.files = 1;
     brokerList.push_back(temp);
   }
